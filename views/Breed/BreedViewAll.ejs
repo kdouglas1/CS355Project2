@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Breed</title>
+</head>
+<body>
+<h1>Breed</h1>
+<a href="/Breed/add">Add New Breed</a> <br />
+
+<br />
+
+<table border="1">
+    <tr><th>Name</th><th>Hair Length</th><th>Action</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/Breed/?Breed_ID=<%= result[i].Breed_ID %>"><%= result[i].Name %></a></td>
+        <td><%= result[i].Name %>, <%= result[i].HairLength %></td>
+        <td>
+            <button onclick="event.preventDefault();window.location.href='/Breed/edit/?Breed_ID=<%= result[i].Breed_ID %>'">Edit</button>
+            <form action="/Breed/delete/">
+                <input type="hidden" name="Breed_ID" id="Breed_ID" value="<%= result[i].Breed_ID %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+
+</html>

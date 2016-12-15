@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Dogs</title>
+</head>
+<body>
+<h1>Dogs</h1>
+<a href="/account/add">Add New Dog</a> <br />
+
+<table border="1">
+    <tr><th>Dog Name</th><th>Sex</th><th>Birthdate</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/Dogs/?DogID=<%= result[i].DogID %>"><%= result[i].Sex %></a></td>
+        <td><%= result[i].Dname %></td>
+        <td>
+            <button onclick="event.preventDefault();window.location.href='/Dogs/edit/?DogID=<%= result[i].DogID %>'">Edit</button>
+            <form action="/Dogs/delete/">
+                <input type="hidden" name="DogID" id="DogID" value="<%= result[i].DogID %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+    </tr>
+    <% } %>
+</table>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Add New Shelter</title>
+</head>
+<body>
+<h1>Add New Shelter</h1>
+<form action="/Shelter/insert" method="get">
+    Shelter Name: <input id="SName" name="SName" type="text" />
+    <br />
+    <br />
+    Address:
+    <br />
+
+    Street:
+    <input id="Street" name="Street" type="text" />
+    <br />
+    Zip Code:
+    <input id="Zip" name="Zip" type="text" />
+    <br />
+        <% for(var i=0; Shelter.length > i; i++) { %>
+        <option value="<%= Shelter[i].ShelterID %>"><%= Shelter[i].SName + ', ' + Shelter[i].Addresses %></option>
+        <% } %>
+    </select>
+
+    <input type="submit" />
+
+</form>
+</body>
+
+</html>

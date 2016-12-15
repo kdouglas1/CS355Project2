@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Shelter</title>
+</head>
+<body>
+<h1>Shelter</h1>
+<a href="/Shelter/add">Add New Shelter</a> <br />
+
+<br />
+
+<table border="1">
+    <tr></th><th>Shelter Name</th><th>Address</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><%= result[i].SName%></td>
+        <td><%= result[i].Street %>, <%= result[i].City %></td>
+        <td>
+            <button onclick="event.preventDefault();window.location.href='/Shelter/edit/?Shelter=<%= result[i].ShelterID %>'">Edit</button>
+            <form action="/resume/delete/">
+                <input type="hidden" name="ShelterID" id="ShelterID" value="<%= result[i].ShelterID %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+
+</html>

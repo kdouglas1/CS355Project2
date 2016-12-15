@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Behavior</title>
+</head>
+<body>
+<h1>Behavior</h1>
+<a href="/Behavior/add">Add New Behavior</a> <br />
+
+<br />
+
+<table border="1">
+    <tr><th>Dog Gets Along With Animals</th><th>Dog Gets Along With Children</th><th>Dog is Aggressive</th><th>Action</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><%= result[i].Aggressive %></td>
+        <td><%= result[i].GetsAlongWithChildren %></td>
+        <td><%= result[i].GetsAlongWithAnimals %></td>
+        <td>
+            <button onclick="event.preventDefault();window.location.href='/Behavior/edit/?BehaviorID=<%= result[i].BehaviorID %>'">Edit</button>
+            <form action="/Behavior/delete/">
+                <input type="hidden" name="Behavior_ID" id="Behavior_ID" value="<%= result[i].Behavior_ID %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    <% } %>
+</table>
+<%- include("../includes/footer.ejs"); %>
