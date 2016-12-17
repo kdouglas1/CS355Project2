@@ -1,0 +1,34 @@
+<%- include("../includes/header.ejs", {title: "Update " + Breed.Name}); %>
+
+<h1>Update <%= Breed.Name%></h1>
+<form action="/Breed/update" method="get">
+    <input type="hidden" id="BreedID" name="BreedID" value="<%= Breed.BreedID %>">
+    Breed Name: <input id="Name" name="Name" type="text" value="<%= Breed.Name%>"/>
+    <br />
+    <br />
+    Hair Length <br />
+    <select id="Breed_ID" name="Breed_ID" multiple="multiple">
+        <% for(var i=0; Breed.length > i; i++ ) {
+            var selected = "";
+            if(Breed[i].BreedID != null) {
+                selected = "selected";
+            }
+        %>
+        <option value="<%= Breed[i].BreedID %>" <%= selected %> ><%= Breed[i].Name + ', ' + Breed[i].HairLength %></option>
+        <% } %>
+    </select>
+
+    <!-- Initialize the multiselect plugin: -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#Breed_ID').multiselect();
+        });
+    </script>
+
+    <br />
+
+    <input type="submit" />
+
+</form>
+
+<%- include("../includes/footer.ejs"); %>

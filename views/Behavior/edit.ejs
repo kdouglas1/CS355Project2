@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>
+        Edit
+    </title>
+</head>
+    <body>
+    <form action = "/Behavior/Update/?Behavior_ID = <%=result%>">
+        Does the Dog Get Along With Other Animals: <input id = "GetsAlongWithAnimals" type = "text" name = "GetsAlongWithAnimals"/>
+        <br />
+        Does the Dog Get Along With Other Children: <input id = "GetsAlongWithChildren" type = "text" name = "GetsAlongWithChildren"/>
+        <br />
+        Is the Dog Aggressive? <input id = "Aggressive" type = "text" name = "Aggressive"/>
+        <br />
+        <input type="hidden" name="Behavior_ID" id="Behavior_ID" value="<%= result %>" />
+        <br />
+        <input type="submit">
+
+    </form>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>
+        Edit
+    </title>
+</head>
+<body>
+<form action = "/Shelter/Update/?ShelterID = <%=result%>">
+    Shelter Name: <input id = "SName" type = "text" name = "SName"/>
+    Street: <input id = "Street" type = "text" name = "Street"/>
+    Zip Code: <input id = "Zip" type = "text" name = "Zip"/>
+    <input type="hidden" name="ShelterID" id="ShelterID" value="<%= result %>" />
+    <input type="submit">
+
+</form>
+</body>
+</html>

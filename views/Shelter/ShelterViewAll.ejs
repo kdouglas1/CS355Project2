@@ -9,14 +9,14 @@
 <br />
 
 <table border="1">
-    <tr></th><th>Shelter Name</th><th>Address</th></tr>
+    <tr></th><th>Shelter Name</th><th>Address</th><th>Action</th></tr>
     <% for(var i=0; result.length > i; i++ ) { %>
     <tr>
         <td><%= result[i].SName%></td>
         <td><%= result[i].Street %>, <%= result[i].City %></td>
         <td>
-            <button onclick="event.preventDefault();window.location.href='/Shelter/edit/?Shelter=<%= result[i].ShelterID %>'">Edit</button>
-            <form action="/resume/delete/">
+            <button onclick="event.preventDefault();window.location.href='/Shelter/edit/?ShelterID=<%= result[i].ShelterID %>'">Edit</button>
+            <form action="/Shelter/delete/">
                 <input type="hidden" name="ShelterID" id="ShelterID" value="<%= result[i].ShelterID %>" />
                 <input type="submit" value="Delete"/>
             </form>

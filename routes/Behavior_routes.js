@@ -86,7 +86,30 @@ router.get('/delete', function(req, res){
             }
         });
     }
+
+
 });
+
+router.get('/edit/', function(req, res){
+    if(req.query.Behavior_ID == null) {
+        res.send('Behavior_ID is null');
+    }
+    else {
+        res.render('Behavior/edit', {'result':req.query.Behavior_ID});
+    }
+});
+
+router.get('/update/', function(req, res) {
+    if (req.query.GetsAlongWithAnimals == null || req.query.GetsAlongWithChildren == null || req.query.Aggressive == null || req.query.Behavior_ID == null)
+        res.send('These cannot be null. GO BACK to answer yes or no.');
+    else {
+        Behavior_dal.update(req.query, function (err, result) {
+            res.redirect(302, '/Behavior/all');
+
+        });
+    }
+});
+
 
 module.exports = router;
 

@@ -8,19 +8,12 @@
     Shelter Name: <input id="SName" name="SName" type="text" />
     <br />
     <br />
-    Address:
-    <br />
 
-    Street:
-    <input id="Street" name="Street" type="text" />
+    Street: <input id="Street" name="Street" type="text" />
     <br />
-    Zip Code:
-    <input id="Zip" name="Zip" type="text" />
+    Zip Code: <input id="Zip" name="Zip" type="text" />
     <br />
-        <% for(var i=0; Shelter.length > i; i++) { %>
-        <option value="<%= Shelter[i].ShelterID %>"><%= Shelter[i].SName + ', ' + Shelter[i].Addresses %></option>
-        <% } %>
-    </select>
+    <br />
 
     <input type="submit" />
 

@@ -19,8 +19,8 @@ router.get('/all', function(req, res) {
 
 // View the shelter for the given id
 router.get('/', function(req, res){
-    if(req.query.ShelterID == null) {
-        res.send('ShelterID is null');
+    if(req.query.SName == null) {
+        res.send('SName is null');
     }
     else {
         Shelter_dal.getById(req.query.ShelterID, function(err,result) {
@@ -53,8 +53,8 @@ router.get('/insert', function(req, res){
     if(req.query.SName == null) {
         res.send('Shelter Name must be provided.');
     }
-    else if(req.query.DogID == null) {
-        res.send('A Dog ID must be selected');
+    else if(req.query.Street == null) {
+        res.send('A Street must be entered');
     }
     else {
         // passing all the query parameters (req.query) to the insert function instead of each individually
@@ -76,7 +76,7 @@ router.get('/delete', function(req, res){
         res.send('ShelterID is null');
     }
     else {
-        school_dal.delete(req.query.ShelterID, function(err, result){
+        Shelter_dal.delete(req.query.ShelterID, function(err, result){
             if(err) {
                 res.send(err);
             }
@@ -84,6 +84,28 @@ router.get('/delete', function(req, res){
                 //poor practice, but we will handle it differently once we start using Ajax
                 res.redirect(302, '/Shelter/all');
             }
+        });
+    }
+
+});
+
+
+router.get('/edit/', function(req, res){
+    if(req.query.ShelterID == null) {
+        res.send('ShelterID is null');
+    }
+    else {
+        res.render('Shelter/edit', {'result':req.query.ShelterID});
+    }
+});
+
+router.get('/update/', function(req, res) {
+    if (req.query.SName == null || req.query.Street == null || req.query.Zip == null || req.query.ShelterID == null)
+        res.send('These cannot be null. GO BACK.');
+    else {
+        Shelter_dal.update(req.query, function (err, result) {
+            res.redirect(302, '/Shelter/all');
+
         });
     }
 });

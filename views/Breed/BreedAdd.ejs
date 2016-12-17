@@ -7,13 +7,10 @@
 <form action="/Breed/insert" method="get">
     Breed Name: <input id="Name" name="Name" type="text" />
     <br />
+    Hair Length: <input id="HairLength" name="HairLength" type="text" />
     <br />
-    Hair Length:
-    <select id="HairLength" name="HairLength">
-        <% for(var i=0; result.length > i; i++ ) { %>
-        <option value="<%= result[i].Breed_ID %>"><%= result[i].Name + ', ' + result[i].HairLength %></option>
-        <% } %>
-    </select>
+    <br />
+
 
     <input type="submit" />
 

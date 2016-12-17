@@ -57,7 +57,7 @@ router.get('/insert', function(req, res){
     if(req.query.DName == null) {
         res.send('Dog Name must be provided.');
     }
-    else if(req.query.Sex == null) {
+    else if(req.query.sex == null) {
         res.send('A Sex must be selected');
     }
     else {
@@ -80,7 +80,7 @@ router.get('/delete', function(req, res){
         res.send('DogID is null');
     }
     else {
-        resume_dal.delete(req.query.resume_id, function(err, result){
+        Dogs_dal.delete(req.query.DogID, function(err, result){
             if(err) {
                 res.send(err);
             }
@@ -90,7 +90,27 @@ router.get('/delete', function(req, res){
             }
         });
     }
+
 });
 
 
+router.get('/edit/', function(req, res){
+    if(req.query.DogID == null) {
+        res.send('DogID is null');
+    }
+    else {
+        res.render('Dogs/edit', {'result':req.query.DogID});
+    }
+});
+
+router.get('/update/', function(req, res) {
+    if (req.query.DName == null || req.query.sex == null || req.query.birthdate == null || req.query.DogID == null)
+        res.send('These cannot be null. GO BACK to answer.');
+    else {
+        Dogs_dal.update(req.query, function (err, result) {
+            res.redirect(302, '/Dogs/all');
+
+        });
+    }
+});
 module.exports = router;

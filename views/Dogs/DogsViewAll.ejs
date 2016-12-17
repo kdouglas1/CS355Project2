@@ -7,17 +7,20 @@
 <a href="/account/add">Add New Dog</a> <br />
 
 <table border="1">
-    <tr><th>Dog Name</th><th>Sex</th><th>Birthdate</th></tr>
+    <tr><th>Dog Name</th><th>Sex</th><th>Birthdate</th><th>Action</th></tr>
     <% for(var i=0; result.length > i; i++ ) { %>
     <tr>
-        <td><a href="/Dogs/?DogID=<%= result[i].DogID %>"><%= result[i].Sex %></a></td>
+        <!--<td><a href="/Dogs/?DogID=<%= result[i].DogID %>"><%= result[i].sex %></a></td>-->
         <td><%= result[i].Dname %></td>
-        <td>
+        <td><%= result[i].sex %></td>
+        <td><%= result[i].birthdate %></td>
+       <td>
             <button onclick="event.preventDefault();window.location.href='/Dogs/edit/?DogID=<%= result[i].DogID %>'">Edit</button>
             <form action="/Dogs/delete/">
                 <input type="hidden" name="DogID" id="DogID" value="<%= result[i].DogID %>" />
                 <input type="submit" value="Delete"/>
             </form>
+       </td>
     </tr>
     <% } %>
 </table>

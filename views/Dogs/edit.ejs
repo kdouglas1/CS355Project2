@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>
+        Edit
+    </title>
+</head>
+<body>
+<form action = "/Dogs/Update/?DogID = <%=result%>">
+    Dog Name: <input id = "DName" type = "text" name = "DName"/>
+    Sex: <input id = "sex" type = "text" name = "sex"/>
+    Birthdate <input id = "birthdate" type = "text" name = "birthdate"/>
+    <input type="hidden" name="DogID" id="DogID" value="<%= result %>" />
+    <input type="submit">
+
+</form>
+</body>
+</html>

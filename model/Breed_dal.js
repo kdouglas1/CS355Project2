@@ -19,7 +19,7 @@ exports.getById = function(Breed_ID, callback) {
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
     });
-}
+};
 
 exports.insert = function(params, callback) {
     var query = 'INSERT INTO Breed (Name, Breed_ID) VALUES (?, ?)';
@@ -32,14 +32,22 @@ exports.insert = function(params, callback) {
         callback(err, result);
     });
 
-}
+};
 
 exports.delete = function(Breed_ID, callback) {
     var query = 'DELETE FROM Breed WHERE Breed_ID = ?';
-    var queryData = [school_id];
+    var queryData = [Breed_ID];
 
-    connection.query(query, queryData, function(err, result) {
+    connection.query(query, queryData, function (err, result) {
         callback(err, result);
     });
+};
 
+exports.update = function(params, callback) {
+    var query = 'UPDATE Breed set Name = ?, HairLength = ? where Breed_ID = ?';
+    var queryData = [params.Name, params.HairLength, params.Breed_ID];
+
+    connection.query(query, queryData, function (err, result) {
+        callback(err, result);
+    });
 };

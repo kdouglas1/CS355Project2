@@ -10,6 +10,7 @@ var Shelter = require('./routes/Shelter_routes');
 var Behavior = require('./routes/Behavior_routes');
 var Dogs = require('./routes/Dogs_routes');
 var Breed = require('./routes/Breed_routes');
+var About = require('./routes/about_routes');
 
 var app = express();
 
@@ -31,6 +32,8 @@ app.use('/Breed', Breed);
 app.use('/Dogs', Dogs);
 app.use('/Shelter', Shelter);
 app.use('/Behavior', Behavior);
+app.use('/About', About);
+app.use(express.static('images'));
 
 
 // catch 404 and forward to error handler

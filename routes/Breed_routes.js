@@ -54,11 +54,11 @@ router.get('/add', function(req, res){
 // insert a shelter record
 router.get('/insert', function(req, res){
     // simple validation
-    if(req.query.street == null) {
-        res.send('Street Name must be provided.');
+    if(req.query.Name == null) {
+        res.send('Breed Name must be provided.');
     }
-    else if(req.query.zip_code == null) {
-        res.send('Zip Code must be selected');
+    else if(req.query.HairLength == null) {
+        res.send('Hair Length must be selected');
     }
     else {
         // passing all the query parameters (req.query) to the insert function instead of each individually
@@ -74,7 +74,7 @@ router.get('/insert', function(req, res){
     }
 });
 
-// Delete a Behavior for the given school_id
+// Delete a Breed for the given id
 router.get('/delete', function(req, res){
     if(req.query.Breed_ID == null) {
         res.send('Breed_ID is null');
@@ -88,6 +88,28 @@ router.get('/delete', function(req, res){
                 //poor practice, but we will handle it differently once we start using Ajax
                 res.redirect(302, '/Breed/all');
             }
+        });
+    }
+
+
+});
+
+router.get('/edit/', function(req, res){
+    if(req.query.Breed_ID == null) {
+        res.send('Breed_ID is null');
+    }
+    else {
+        res.render('Breed/edit', {'result':req.query.Breed_ID});
+    }
+});
+
+router.get('/update/', function(req, res) {
+    if (req.query.Name == null || req.query.HairLength == null || req.query.Breed_ID == null)
+        res.send('These cannot be null. GO BACK to answer yes or no.');
+    else {
+        Breed_dal.update(req.query, function (err, result) {
+            res.redirect(302, '/Breed/all');
+
         });
     }
 });

@@ -5,20 +5,32 @@
 <body>
 <h1>Add New Behavior</h1>
 <form action="/Behavior/insert" method="get">
-    Behavior: <input id="Behavior_ID" name="Behavior_ID" type="text" />
-    <br />
-    <br />
 
-    Does the Dog Get Along With Children?
-    <input id="GetsAlongWithChildren" name="GetsAlongWithChildren" type="text" />
     <br />
-    Does the Dog Get Along With Other Animals?
-    <input id="GetsAlongWithAnimals" name="GetsAlongWithAnimals" type="text" />
+    <!--<input id="GetsAlongWithChildren" name="GetsAlongWithChildren" type="text" />-->
+    <br />
+    <!--Does the Dog Get Along With Other Animals?-->
+    <!--<input id="GetsAlongWithAnimals" name="GetsAlongWithAnimals" type="text" />-->
+    <br />
+    Does the Dog Get Other Animals?
+    <select id ="GetsAlongWithAnimals" name="GetsAlongWithAnimals">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+    </select>
+    <br />
+    <!--<input id="Aggressive" name="Aggressive" type="text" />-->
+    Does the Dog Get Along With Children?
+    <select id ="GetsAlongWithChildren" name="GetsAlongWithChildren">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+    </select>
     <br />
     Is the Dog Aggressive?
-    <input id="Aggressive" name="Aggressive" type="text" />
-
-
+    <select id ="Aggressive" name="Aggressive">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+    </select>
+    <br />
     <input type="submit" />
 
 </form>
